@@ -1,0 +1,25 @@
+s='abcd:1234,bcdgfhf:127836,sdjks:1245'.split(',')
+
+
+for i in s:
+    l=i.split(':')
+    ss=l[0]
+    value=l[1]
+    num=int(value)
+    sub=[]
+    ssub=[]
+    ssum=0
+    rem=0
+    while(num>0):
+        rem=num%10
+        ssum+=rem**2
+        num=num/10
+    sub=[j for j in ss]
+    # print(ssum)
+    if int(ssum)%2==0:
+        # print(sub)
+        ssub=sub[(len(sub)-2)%len(sub):len(sub)]+sub[0:(len(sub)-2)%len(sub)]
+    else:
+        # 
+        ssub=sub[1%len(sub):len(sub)]+sub[0:1%len(sub)]
+    print(''.join(ssub))
