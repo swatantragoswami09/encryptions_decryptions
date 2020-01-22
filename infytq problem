@@ -1,0 +1,28 @@
+#no1: Add all no. which do not lies between 5 and 8 (excluding 5 and 8)
+#no2: no. formed by concatenating all no forms 5 to 8 (including 5 to 8)
+
+#e.g
+#'3,2,6,5,1,4,8,9'
+#3+2+6+9=20
+#'5'+'1'+'4'+'8'='5148'
+#5148+20=5168
+
+
+
+l='3,2,6,5,1,4,8,9'.split(',')
+index_5=0
+index_8=0
+for i in l:
+    if i=='5':
+        index_5=l.index('5')
+    if i=='8':
+        index_8=l.index('8')
+print(index_5,index_8)
+s=0
+ss=''
+for j in range(len(l)):
+    if j<index_5 or j>index_8:
+        s+=int(l[j])
+    else:
+        ss+=l[j]
+print(s+int(ss))
