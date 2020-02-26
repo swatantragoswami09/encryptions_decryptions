@@ -1,0 +1,33 @@
+s='abca'
+
+def c(s):
+	fre=[0]*26
+	c=0
+	v=0
+	for i in range(len(s)):
+		fre[ord(s[i])-ord('a')]+=1
+	for i in s:
+		if i in ['a','e','i','o','u']:
+			v+=1
+		else:
+			c+=1
+
+	return wc(c+1,fre)*wv(v,fre)
+def wc(c,fre):
+	ans=fact(c)
+	# print(ans)
+	for i in range(len(fre)):
+		if i==0 or i==4 or i==8 or i==14 or i==20:
+			continue
+		else:
+			ans=ans//fact(fre[i])
+	
+	return ans
+def wv(v,fre):
+	return fact(v)//(fact(fre[0])*fact(fre[4])*fact(fre[8])*fact(fre[14])*fact(fre[20]))
+def fact(n):
+	f=1
+	for i in range(2,n+1):
+		f=f*i
+	return f
+print(c(s))
